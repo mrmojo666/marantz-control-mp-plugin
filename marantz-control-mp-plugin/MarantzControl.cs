@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using MediaPortal.GUI.Library;
 using MediaPortal.Dialogs;
 
+
+
 namespace marantz_control_mp_plugin
 {
     public class MarantzControl : GUIWindow, ISetupForm
@@ -17,25 +19,25 @@ namespace marantz_control_mp_plugin
     // Returns the name of the plugin which is shown in the plugin menu
     public string PluginName()
     {
-        return "MyFirstPlugin";
+        return "MarantzControl";
     }
 
     // Returns the description of the plugin is shown in the plugin menu
     public string Description()
     {
-        return "My First Plugin";
+        return "MarantzControl";
     }
 
     // Returns the author of the plugin which is shown in the plugin menu
     public string Author()
     {
-        return "YourNameHere";
+            return "mrmojo666";
     }
 
     // show the setup dialog
     public void ShowPlugin()
     {
-            MarantzSettings settings = new MarantzSettings();
+            MarantzSettingsForm settings = new MarantzSettingsForm();
             settings.ShowDialog();
             
     }
@@ -88,22 +90,24 @@ namespace marantz_control_mp_plugin
         return false;
     }
 
-        // With GetID it will be an window-plugin / otherwise a process-plugin
-        // Enter the id number here again
-        //public override int GetID
-        //{
-        //    get
-        //    {
-        //        return 9991;
-        //    }
+        //With GetID it will be an window-plugin / otherwise a process-plugin
+        //Enter the id number here again
+        public override int GetID
+        {
+            get
+            {
+                return -1;
+            }
 
-        //    set
-        //    {
-        //    }
-        //}
+            set
+            {
+            }
+        }
 
         #endregion
 
-        
+
+
+
     }
 }
