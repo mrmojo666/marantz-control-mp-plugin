@@ -9,7 +9,7 @@ using MediaPortal.Dialogs;
 
 namespace marantz_control_mp_plugin
 {
-    public class Class1 : GUIWindow, ISetupForm
+    public class MarantzControl : GUIWindow, ISetupForm
     {
         
     #region ISetupForm Members
