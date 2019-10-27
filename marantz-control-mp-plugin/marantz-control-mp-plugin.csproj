@@ -42,6 +42,15 @@
     <Reference Include="Dialogs">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\Dialogs.dll</HintPath>
     </Reference>
+    <Reference Include="LiteGuard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteGuard.1.1.0\lib\net35\LiteGuard.dll</HintPath>
+    </Reference>
+    <Reference Include="PrimS.Telnet.NetStandard, Version=0.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telnet.0.8.4\lib\net451\PrimS.Telnet.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="RemotePlugins">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Team MediaPortal\MediaPortal\RemotePlugins.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -58,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MarantzConfig.cs" />
     <Compile Include="MarantzControl.cs" />
     <Compile Include="MarantzSettingsForm.cs">
       <SubType>Form</SubType>
@@ -71,6 +81,12 @@
     <EmbeddedResource Include="MarantzSettingsForm.resx">
       <DependentUpon>MarantzSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

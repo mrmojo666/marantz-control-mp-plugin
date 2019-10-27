@@ -8,77 +8,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPortal.Configuration;
+using MediaPortal.GUI.Library;
+using MediaPortal.Dialogs;
+
 
 
 namespace marantz_control_mp_plugin
 {
     public partial class MarantzSettingsForm : Form
     {
-        public MarantzSettingsForm _config;
+        public MarantzConfig _config;
 
         public MarantzSettingsForm()
         {
-            //_config = new MarantzSettingsForm();
 
-            
+
+            _config = new MarantzConfig();
 
 
             InitializeComponent();
 
             try
             {
-                ReadConfig();
+               _config.ReadConfig();
             }
             catch (Exception exp)
             {
                 MessageBox.Show("Error while reading configuration from MediaPortal.xml" + exp.ToString());
             }
 
-        }
 
-        private void SetDefault()
-        {
-            textAddress.Text = "0.0.0.0";
-            textPort.Text = "23";
-            textTelnelCommand.Text = "";
+            textAddress.Text = _config.Address;
+            textPort.Text = _config.Port;
+            textTelnelCommand.Text = _config.TelnetCommand;
 
         }
-        private void ReadConfig()
-        {
-            try
-            {
-                using (MediaPortal.Profile.Settings reader = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml")))
-                {
-                    textAddress.Text = reader.GetValueAsString("MarantzControl", "Address", "0.0.0.0");
-                    textPort.Text = reader.GetValueAsString("MarantzControl", "Port", "23");
-                    textTelnelCommand.Text = reader.GetValueAsString("MarantzControl", "TelnetCommand", "");
 
-                }
-            }
-            catch (Exception ex)
-            {
-                //Log.Error("CecRemote: Configuration read failed, using defaults! {0}", ex.ToString());
-                SetDefault();
-            }
-        }
-        private void WriteConfig()
-        {
-            try
-            {
-                using (MediaPortal.Profile.Settings writer = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml")))
-                {
-                    writer.SetValue("MarantzControl", "Address",textAddress.Text);
-                    writer.SetValue("MarantzControl", "Port", textPort.Text);
-                    writer.SetValue("MarantzControl", "TelnetCommand", textTelnelCommand.Text);
+        
 
-                }
-            }
-            catch (Exception ex)
-            {
-                //Log.Error("CecRemote: Configuration read failed, using defaults! {0}", ex.ToString());
-                throw;
-            }
-        }
+        
+        
+        
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
@@ -87,7 +57,11 @@ namespace marantz_control_mp_plugin
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            WriteConfig();
+            _config.Address = textAddress.Text ;
+            _config.Port = textPort.Text;
+            _config.TelnetCommand = textTelnelCommand.Text;
+
+            _config.WriteConfig();
             this.Close();
         }
     }
