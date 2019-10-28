@@ -117,11 +117,23 @@ namespace marantz_control_mp_plugin
             Log.Info("MarantzControl: Version 0.0.1");
 
             _config = new MarantzConfig();
-            _config.ReadConfig();
-
             
 
+            _config.ReadConfig();
 
+            Log.Info("MarantzControl: preparing to send telnet command");
+
+            using (Client client = new Client(_config.Address, Int32.Parse(_config.Port), new System.Threading.CancellationToken()))
+            {
+                if (client.IsConnected)
+                {
+
+                    client.WriteLine(_config.TelnetCommand);
+
+                }
+            }
+
+            Log.Info("MarantzControl: Sent Telnet command");
 
 
 
