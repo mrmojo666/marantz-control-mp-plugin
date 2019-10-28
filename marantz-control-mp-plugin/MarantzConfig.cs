@@ -16,6 +16,7 @@ namespace marantz_control_mp_plugin
         public string Port;
         public string TelnetCommand;
 
+        
         public void SetDefault()
         {
             Address = "0.0.0.0";

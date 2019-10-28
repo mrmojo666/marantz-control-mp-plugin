@@ -37,5 +37,7 @@ using MediaPortal.Common.Utils;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: CompatibleVersion("1.6.0.0")]
-[assembly: UsesSubsystem("MP.Input")]
+
 [assembly: UsesSubsystem("MP.Config")]
+
+

@@ -8,11 +8,12 @@ using MediaPortal.GUI.Library;
 using MediaPortal.Dialogs;
 using MediaPortal.InputDevices;
 using PrimS.Telnet;
+using Action = MediaPortal.GUI.Library.Action;
 
 
 namespace marantz_control_mp_plugin
 {
-    public class MarantzControl : GUIWindow, ISetupForm
+    public class MarantzControl : IPlugin , ISetupForm 
     {
 
         #region ISetupForm Members
@@ -54,7 +55,7 @@ namespace marantz_control_mp_plugin
         {
             // WindowID of windowplugin belonging to this setup
             // enter your own unique code
-            return 9999;
+            return 0;
         }
 
         // Indicates if plugin is enabled by default;
@@ -93,52 +94,70 @@ namespace marantz_control_mp_plugin
 
         //With GetID it will be an window-plugin / otherwise a process-plugin
         //Enter the id number here again
-        public override int GetID
-        {
-            get
-            {
-                return -1;
-            }
+        //public override int GetID
+        //{
+        //    get
+        //    {
+        //        return -1;
+        //    }
 
-            set
-            {
-            }
-        }
+        //    set
+        //    {
+        //    }
+        //}
 
         #endregion
 
-
-        private MarantzConfig _config;
+        public MarantzConfig _config;
+        
 
         public void Start()
         {
+            Log.Info("Marantzconfig.start(): called");            
             Log.Info("MarantzControl: Version 0.0.1");
 
+            _config = new MarantzConfig();
             _config.ReadConfig();
 
-           
-
             
+
+
+
+
+
+
         }
 
-        public override void OnAction(MediaPortal.GUI.Library.Action action)
-        {
-            if (action.wID == MediaPortal.GUI.Library.Action.ActionType.ACTION_HOME)
-            {
-                using (Client client = new Client(_config.Address, Int32.Parse(_config.Port), new System.Threading.CancellationToken()))
-                {
-                    if (client.IsConnected)
-                    {
+        public void Stop()
+        { }
 
-                        client.WriteLine(_config.TelnetCommand);
-                        
-                    }
-                }
-            
-            base.OnAction(action);
-        }
+
+
+
+
+
+
+        //public override void OnAction(MediaPortal.GUI.Library.Action action)
+        //{
+
+
+
+        //    if (action.wID == MediaPortal.GUI.Library.Action.ActionType.ACTION_HOME)
+        //    {
+        //        using (Client client = new Client(_config.Address, Int32.Parse(_config.Port), new System.Threading.CancellationToken()))
+        //        {
+        //            if (client.IsConnected)
+        //            {
+
+        //                client.WriteLine(_config.TelnetCommand);
+
+        //            }
+        //        }
+
+        //        base.OnAction(action);
+        //    }
+        //}
     }
-}   
-    
-    
+
+
 }
