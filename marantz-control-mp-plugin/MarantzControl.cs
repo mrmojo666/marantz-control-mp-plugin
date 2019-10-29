@@ -204,7 +204,7 @@ namespace marantz_control_mp_plugin
                     var dialogNotify = (GUIDialogNotify)GUIWindowManager.GetWindow((int)Window.WINDOW_DIALOG_NOTIFY);
                     //dialogNotify.Reset();
                     dialogNotify.SetHeading("Telnet Command to Marantz");
-                    dialogNotify.SetText("Sent Switch to HTCP Info");
+                    dialogNotify.SetText("Sent Tenet Command");
                     dialogNotify.DoModal(GUIWindowManager.ActiveWindow);
 
                     }
