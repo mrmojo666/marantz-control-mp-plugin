@@ -90,6 +90,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(TargetDir)marantz-control-mp-plugin.*" "C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\process" /S /Y</PostBuildEvent>
+    <PostBuildEvent>XCOPY "$(TargetDir)marantz-control-mp-plugin.*" "C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\windows" /S /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>
