@@ -123,17 +123,30 @@ namespace marantz_control_mp_plugin
 
             Log.Info("MarantzControl: preparing to send telnet command");
 
-            using (Client client = new Client(_config.Address, Int32.Parse(_config.Port), new System.Threading.CancellationToken()))
+            try
             {
-                if (client.IsConnected)
+                using (Client client = new Client(_config.Address, Int32.Parse(_config.Port), new System.Threading.CancellationToken()))
                 {
+                    if (client.IsConnected)
+                    {
 
-                    client.WriteLine(_config.TelnetCommand);
+                        client.WriteLine(_config.TelnetCommand);
+                        Log.Info("MarantzControl: Sent Telnet command {0}:{1} {2}", _config.Address, _config.Port, _config.TelnetCommand);
+                    }
+                    else
+                    {
+                        Log.Error("MarantzControl: Cant't Connect to {0}:{1}", _config.Address, _config.Port);
 
+                    }
                 }
             }
+            catch 
+            {
+                Log.Error("MarantzControl: Cant't Connect to {0}:{1}", _config.Address, _config.Port);
+            }
+            
 
-            Log.Info("MarantzControl: Sent Telnet command");
+            
 
 
 
@@ -141,7 +154,10 @@ namespace marantz_control_mp_plugin
         }
 
         public void Stop()
-        { }
+        {
+        
+        
+        }
 
 
 
