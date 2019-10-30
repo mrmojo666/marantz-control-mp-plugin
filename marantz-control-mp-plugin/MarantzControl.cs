@@ -119,7 +119,7 @@ namespace marantz_control_mp_plugin
         
         {
             Log.Info("Marantzconfig.init(): called");            
-            Log.Info("MarantzControl: Version 0.0.1");
+            Log.Info("MarantzControl: Version {0}", typeof(String).Assembly.GetName().Version);
 
             _config = new MarantzConfig();
             

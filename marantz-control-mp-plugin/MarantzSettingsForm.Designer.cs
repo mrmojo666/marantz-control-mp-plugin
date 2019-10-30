@@ -50,7 +50,7 @@
             // 
             // textAddress
             // 
-            this.textAddress.Location = new System.Drawing.Point(78, 46);
+            this.textAddress.Location = new System.Drawing.Point(78, 205);
             this.textAddress.Name = "textAddress";
             this.textAddress.Size = new System.Drawing.Size(235, 22);
             this.textAddress.TabIndex = 1;
@@ -58,7 +58,7 @@
             // labelAddress
             // 
             this.labelAddress.AutoSize = true;
-            this.labelAddress.Location = new System.Drawing.Point(75, 26);
+            this.labelAddress.Location = new System.Drawing.Point(76, 185);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(115, 17);
             this.labelAddress.TabIndex = 2;
@@ -67,7 +67,7 @@
             // labelPort
             // 
             this.labelPort.AutoSize = true;
-            this.labelPort.Location = new System.Drawing.Point(75, 81);
+            this.labelPort.Location = new System.Drawing.Point(85, 230);
             this.labelPort.Name = "labelPort";
             this.labelPort.Size = new System.Drawing.Size(84, 17);
             this.labelPort.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // textPort
             // 
-            this.textPort.Location = new System.Drawing.Point(78, 102);
+            this.textPort.Location = new System.Drawing.Point(79, 250);
             this.textPort.Name = "textPort";
             this.textPort.Size = new System.Drawing.Size(100, 22);
             this.textPort.TabIndex = 4;
@@ -83,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 150);
+            this.label1.Location = new System.Drawing.Point(76, 275);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 17);
             this.label1.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             // textTelnelCommand
             // 
-            this.textTelnelCommand.Location = new System.Drawing.Point(78, 170);
+            this.textTelnelCommand.Location = new System.Drawing.Point(78, 295);
             this.textTelnelCommand.Name = "textTelnelCommand";
             this.textTelnelCommand.Size = new System.Drawing.Size(235, 22);
             this.textTelnelCommand.TabIndex = 6;
