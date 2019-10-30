@@ -142,7 +142,7 @@ namespace marantz_control_mp_plugin
 
        
 
-        public void OnNewAction(Action action)
+        public void  OnNewAction(Action action)
         {
             // Remote Key to open Menu
             if ((action.wID == Action.ActionType.ACTION_HOME) || (action.wID == Action.ActionType.ACTION_SWITCH_HOME))
