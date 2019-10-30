@@ -113,13 +113,13 @@ namespace marantz_control_mp_plugin
         private MarantzConfig _config;
         public int result = 0;
 
-
+        
 
         public override bool Init()
         
         {
             Log.Info("Marantzconfig.init(): called");            
-            Log.Info("MarantzControl: Version {0}", typeof(String).Assembly.GetName().Version);
+            Log.Info("MarantzControl: Version {0}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version);
 
             _config = new MarantzConfig();
             
