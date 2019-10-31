@@ -1,6 +1,6 @@
 # marantz-control-mp-plugin
 
-Marantz Control MediaPortal Plugin
+
 Marantz Control is a plugin for MediaPortal1 to send telnet command on a specific mediaportal action.
 It is created with the purpose to change input on my Marantz AVR on a specific mediaportal input (eg: by pressing a remote button).
 
