@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "marantz-control-mp-plugin", "marantz-control-mp-plugin\marantz-control-mp-plugin.csproj", "{A49F6EFF-F7BE-40DF-8FAC-D400C2271F5C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AECB3DBF-FDC5-486D-ABBF-EBE8BDED84DB}"
+	ProjectSection(SolutionItems) = preProject
+		marantz-control-mp-plugin\MPEI\marantzcontrol.xmp2 = marantz-control-mp-plugin\MPEI\marantzcontrol.xmp2
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

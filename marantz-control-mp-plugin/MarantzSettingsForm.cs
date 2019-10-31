@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MediaPortal.Configuration;
 using MediaPortal.GUI.Library;
 using MediaPortal.Dialogs;
+using Action = MediaPortal.GUI.Library.Action;
 
 
 
@@ -42,6 +43,17 @@ namespace marantz_control_mp_plugin
             textPort.Text = _config.Port;
             textTelnelCommand.Text = _config.TelnetCommand;
 
+            comboBoxAction.Items.Add("");
+            foreach (string actiontype in Enum.GetNames(typeof(Action.ActionType)))
+            {
+                comboBoxAction.Items.Add(actiontype);
+            }
+          
+                
+            comboBoxAction.SelectedItem = (string)Enum.GetName(typeof(Action.ActionType), _config.Action);
+
+            
+
         }
 
         
@@ -55,14 +67,20 @@ namespace marantz_control_mp_plugin
             this.Close();
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void ButtonOK_Click(object sender, EventArgs e)
         {
             _config.Address = textAddress.Text ;
             _config.Port = textPort.Text;
             _config.TelnetCommand = textTelnelCommand.Text;
+            _config.Action = (int)Enum.Parse(typeof(Action.ActionType), comboBoxAction.SelectedItem.ToString());
 
             _config.WriteConfig();
             this.Close();
+        }
+
+        private void ComboBoxAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 

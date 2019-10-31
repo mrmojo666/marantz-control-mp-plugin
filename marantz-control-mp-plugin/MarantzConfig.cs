@@ -15,13 +15,14 @@ namespace marantz_control_mp_plugin
         public string Address;
         public string Port;
         public string TelnetCommand;
-
+        public int Action;
         
         public void SetDefault()
         {
             Address = "0.0.0.0";
             Port = "23";
             TelnetCommand = "";
+            Action = 0;
 
         }
         public void ReadConfig()
@@ -30,6 +31,7 @@ namespace marantz_control_mp_plugin
             {
                 using (MediaPortal.Profile.Settings reader = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml")))
                 {
+                    Action = reader.GetValueAsInt("MarantzControl", "Action", 0);
                     Address = reader.GetValueAsString("MarantzControl", "Address", "0.0.0.0");
                     Port = reader.GetValueAsString("MarantzControl", "Port", "23");
                     TelnetCommand = reader.GetValueAsString("MarantzControl", "TelnetCommand", "");
@@ -49,6 +51,7 @@ namespace marantz_control_mp_plugin
             {
                 using (MediaPortal.Profile.Settings writer = new MediaPortal.Profile.Settings(Config.GetFile(Config.Dir.Config, "MediaPortal.xml")))
                 {
+                    writer.SetValue("MarantzControl", "Action", Action);
                     writer.SetValue("MarantzControl", "Address", Address);
                     writer.SetValue("MarantzControl", "Port", Port);
                     writer.SetValue("MarantzControl", "TelnetCommand", TelnetCommand);
